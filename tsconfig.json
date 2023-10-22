@@ -1,0 +1,29 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext", "ESNext.AsyncIterable"],
+        "typeRoots": ["node_modules/@types"],
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "forceConsistentCasingInFileNames": true,
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "baseUrl": "src",
+        "rootDir": "src",
+        "paths": {
+            "@interfaces": ["./src/interfaces"]
+        },
+        "pretty": true,
+        "sourceMap": true,
+        "declaration": true,
+        "outDir": "dist",
+        "allowJs": true,
+        "noEmit": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true
+    },
+    "include": ["src/**/*.ts", "src/**/*.json", ".env"],
+    "exclude": ["node_modules", "src/http", "src/logs", "src/tests"]
+}
