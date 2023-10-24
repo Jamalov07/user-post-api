@@ -41,10 +41,12 @@ export class PostService {
 			}
 		});
 
-		const posts: Post[] = await this.#post.findAll({ where: { ...searchOptions, ...filterOptions }, limit: size, offset: skip, order: sortOptions }).catch((error: Error) => {
-			console.log(error);
-			throw new HttpException(500, "Failed to retrieve posts");
-		});
+		const posts: Post[] = await this.#post
+			.findAll({ where: { ...searchOptions, ...filterOptions }, limit: size, offset: skip, order: sortOptions, include: { all: true } })
+			.catch((error: Error) => {
+				console.log(error);
+				throw new HttpException(500, "Failed to retrieve posts");
+			});
 		const total: number = await this.#post.count({ where: { ...searchOptions, ...filterOptions }, include: { all: true } }).catch((error: Error) => {
 			console.log(error);
 			throw new HttpException(500, "Failed to count posts");
